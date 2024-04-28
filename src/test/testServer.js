@@ -31,3 +31,22 @@ describe('test POST api', () => {
       });
   });
 });
+
+describe('test DELETE api', () => {
+  it('delete dog from DB', async () => {
+    const json = {
+      "title": "kutta",
+      "color": "black",
+      "imagePath": "https://i.postimg.cc/j2J0x4Cj/dog1.png",
+      "description": "Kala kutta"
+    };
+    request.delete(
+      'http://localhost:3000/api/cards',
+      { json: json },
+      (error, response, body) => {
+        if (error) {
+          assert.fail(0, 1, 'error not expected');
+        }
+      });
+  });
+});
