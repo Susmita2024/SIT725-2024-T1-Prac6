@@ -15,6 +15,8 @@ const insertCard = async (req, res) => {
     description: req.body.value.description,
   };
 
+  
+
   console.log(`adding card to database; card: ${util.inspect(card)}`);
   const result = await model.insertCard(card);
   const success = result && result.acknowledged;
@@ -25,4 +27,18 @@ const insertCard = async (req, res) => {
   }
 };
 
-module.exports = { getAllCards, insertCard };
+const deleteCard =async (req,res) => {
+  let card = req.body;
+  console.log(`Deleting card to database; card: ${util.inspect(card)}`);
+  const result = await model.deleteCard(card);
+  console.log(result);
+  const success = result && result.acknowledged;
+  if (success) {
+    res.status(200).json('SUCCESS').send();
+  } else {
+    res.status(500).json('FAILED').send();
+  }
+
+}
+
+module.exports = { getAllCards, insertCard, deleteCard };

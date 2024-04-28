@@ -12,6 +12,12 @@ router.post('/api/cards', async (req, res) => {
   return dogController.insertCard(req, res);
 });
 
+router.delete('/api/cards', (req,res) => {
+  console.log('DELETE: /api/cards');
+  return dogController.deleteCard(req,res);
+});
+
+
 module.exports = router; 
 
 

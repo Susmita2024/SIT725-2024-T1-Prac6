@@ -9,4 +9,8 @@ const insertCard = async (card) => {
   return await collection.insertOne(card); // insert data into database
 };
 
-module.exports = { getAllCards, insertCard };
+const deleteCard = async (card) => {
+  return await collection.deleteOne(card);
+}
+
+module.exports = { getAllCards, insertCard, deleteCard };

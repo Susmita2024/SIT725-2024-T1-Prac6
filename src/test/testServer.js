@@ -3,7 +3,7 @@ const expect = require('chai').expect;
 const request = require('request');
 const axios = require('axios');
 
-describe('test GET api', function() {
+describe('test GET api', function () {
   it('returns statusCode of 200', async () => {
     //const response = await fetch('http://localhost:3000/api/cards');
     const response = await axios.get('http://localhost:3000/api/cards');
@@ -11,23 +11,23 @@ describe('test GET api', function() {
   });
 });
 
-  describe('test POST api', () => {
-    it('post dog to DB', async () => {
-      const json = {
-        value: {
-          title: 'myDog',
-          color: 'white',
-          imagePath: 'https://i.postimg.cc/g2ZG44ks/dog.png',
-          description: 'my awesome dog',
-        },
-      };
-      request.post(
-          'http://localhost:3000/api/cards',
-          { json: json },
-          (error, response, body) => {
-            if (error) {
-              assert.fail(0, 1, 'error not expected');
-            }
-          });
-    });
+describe('test POST api', () => {
+  it('post dog to DB', async () => {
+    const json = {
+      value: {
+        title: 'myDog',
+        color: 'white',
+        imagePath: 'https://i.postimg.cc/g2ZG44ks/dog.png',
+        description: 'my awesome dog',
+      },
+    };
+    request.post(
+      'http://localhost:3000/api/cards',
+      { json: json },
+      (error, response, body) => {
+        if (error) {
+          assert.fail(0, 1, 'error not expected');
+        }
+      });
   });
+});
